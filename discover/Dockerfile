@@ -2,13 +2,14 @@
 #Build Steps
 
 FROM node:12.2.0-alpine as build
+USER root
 
 WORKDIR /app
 
 COPY . /app/
 
-RUN npm config set unsafe-perm true
 
+RUN npm config set unsafe-perm true
 RUN npm install
 RUN npm install react-scripts@5.0.1 -g --silent
 
